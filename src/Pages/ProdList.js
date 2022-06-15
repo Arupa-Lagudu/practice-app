@@ -3,17 +3,18 @@ import Image from 'react-bootstrap/Image'
 import Carousel from 'react-bootstrap/Carousel'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import Loading from './Loading';
 
 
 const ProdList = (props) => {
     const { prods } = props;
 
 
-if (!prods || prods.length === 0) return <p>Sorry...!!! No Products Available</p>;
+if (!prods || prods.length === 0) return ( <Loading />)
 return (
-  <Container className='mt-5'>
-    <h2 className='mb-4 text-center mt-2'>Available Products</h2>
-    {prods.products.map((prod) => {
+  <Container className='mt-3'>
+    <h2 className='mb-3 text-center mt-2'>Available Products</h2>
+    {prods.map((prod) => {
       return (
         <a href={'/Products/'+prod.id} className="text-decoration-none text-dark">
           <Row className='mt-5 mb-5'>

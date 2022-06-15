@@ -4,15 +4,14 @@ import Image from "react-bootstrap/Image";
 import Carousel from "react-bootstrap/Carousel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import Loading from "./Loading";
 
 const Product = (prop) =>{
-    const { prod } = prop;
-    console.dir(prod)
-
-if (!prod || prod.length === 0) return <p>Sorry...!!! Something is wrong</p>;
+  const { prod } = prop;
+  if (!prod || prod.length === 0) return <Loading />
 
 return (
-  <Container className="mt-3 me-5 mb-5">
+  <Container className="mt-3 me-5 mb-5 p-2">
     <div className="mt-5"></div>
     <Row className="mt-5 mb-5">
       <Col sm={6} md={6} lg={5} xl={5} xxl={5}>

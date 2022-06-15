@@ -1,0 +1,17 @@
+.Search {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .SearchInput {
+    border-color: #ddd;
+    margin-left: 15%;
+    width: 60%;
+    padding: 5px;
+    border-radius: 5px 5px;
+    outline: none;
+  }
+  

@@ -8,7 +8,11 @@ import InsertDriveFileRoundedIcon from '@mui/icons-material/InsertDriveFileRound
 import CardContent from '@mui/material/CardContent';
 import ConsFiles from './ConsFiles';
 import Chart from './Chart';
-
+import { RotatedBar2 } from './RotatedBar2';
+import Counter from './Hooks/UseReducer';
+import UseContext from './Hooks/UseContext';
+import UseMemo from './Hooks/UseMemo';
+import UseCallback from './Hooks/UseCallback';
 const DashBoard = () =>{
     const drawerWidth = 180;
   return(  
@@ -90,6 +94,13 @@ const DashBoard = () =>{
           </Box>
           <ConsFiles />
           <Chart />
+          <RotatedBar2 />
+      </Box>
+      <Box>
+        <Counter />
+        <UseContext />
+        <UseMemo />
+        <UseCallback />
       </Box>
     
     </Box>

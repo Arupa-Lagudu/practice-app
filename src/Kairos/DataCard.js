@@ -29,7 +29,7 @@ export default function DataCard() {
       position='sticky'>
         <Typography color= 'primary'
         sx={{fontSize: 12,}}>{PassedTests} Passed
-        <Typography color= '#f44336' display='inline'
+        <Typography color= '#f381a7' display='inline'
         sx={{fontSize: 12,marginLeft:1}} >{FailedTests} Failed
         </Typography></Typography>
         <Button sx={{fontSize: 10, textTransform: 'none', padding: 0,marginLeft: 4.9}}>+ New</Button>

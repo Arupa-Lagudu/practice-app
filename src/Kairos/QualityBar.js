@@ -8,7 +8,7 @@ import BarChart from './BarChart';
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   padding: theme.spacing(1),
-  height: 60,
+  height: 70,
   borderColor: "#bbdefb",
 }));
 
@@ -25,7 +25,7 @@ export default function QualityBar() {
     }}>
       <Grid container
       sx={{ borderColor: 'primary.main' }}>
-        <Grid item md={2}>
+        <Grid item lg={2} xs={12}>
           <Item variant='outlined' square borderColor="primary.main">
           <Typography
             variant='body2'
@@ -37,7 +37,7 @@ export default function QualityBar() {
           </ Typography>
           </Item>
         </Grid>
-        <Grid item md={5.5}>
+        <Grid item lg={5.5} xs={12}>
           <Item variant='outlined' square >
             <Grid container>
               <Grid item xs={3}>
@@ -55,12 +55,14 @@ export default function QualityBar() {
           </Grid>
           <Grid item xs={9} 
           alignItems= 'center'>
-          <BarChart />
+            <Box>
+            <BarChart />
+          </Box>
           </Grid>
           </Grid>
         </Item>
         </Grid>
-        <Grid item md={1}>
+        <Grid item lg={1} xs={6}>
           <Item variant='outlined' square> 
             <Typography
             variant='body2'
@@ -75,7 +77,7 @@ export default function QualityBar() {
             </Typography>
           </Item>
         </Grid>
-        <Grid item md={1}>
+        <Grid item lg={1} xs={6}>
           <Item variant='outlined' square>
             <Typography
             variant='body2'
@@ -90,7 +92,7 @@ export default function QualityBar() {
             </Typography>
           </Item>
         </Grid>
-        <Grid item md={2.5}>
+        <Grid item lg={2.5} xs={12}>
           <Item variant='outlined' square>
           <Typography
           variant='body2'
@@ -100,7 +102,7 @@ export default function QualityBar() {
           </Typography>
         <Typography sx={{fontSize: 12}} color="primary" display="inline"
         >{PassedTests} Passed  </Typography>
-        <Typography sx={{fontSize: 12}} color="#f44336" display="inline"> {FailedTests} Failed</Typography>
+        <Typography sx={{fontSize: 12}} color="#f381a7" display="inline"> {FailedTests} Failed</Typography>
         </Item>
         </Grid>
       </Grid>

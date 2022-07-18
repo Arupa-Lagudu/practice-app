@@ -39,16 +39,16 @@ export default function Connections() {
       <Box sx={{display:'flex'}}>
       {connections.map((connection)=>{
         return(
-          <Box sx={{display:'flex'}}>
+          <Box sx={{display:'flex', textAlign:'center'}}>
           <ListItemText sx={{paddingX: 2}}>
-            <Typography sx={{fontSize: 12, textAlign: 'center'}}>{connection.DB}</Typography>
-            <Typography sx={{fontSize: 15, textAlign: 'center', color: grey[810]}}>
+            <Typography sx={{fontSize: 12}}>{connection.DB}</Typography>
+            <Typography sx={{fontSize: 15, color: grey[810]}}>
               <b>0{connection.connections}</b></Typography>
           </ListItemText> 
           <Divider orientation='vertical' sx={{display:'inline'}}/>
           </Box>
         )})}            
-        <Button sx={{fontSize: 10, textTransform: 'none', textAlign: 'right'}}>+ New</Button>
+        <Button sx={{fontSize: 10, textTransform: 'none'}}>+ New</Button>
       </Box>
     </Box>
     </Item>

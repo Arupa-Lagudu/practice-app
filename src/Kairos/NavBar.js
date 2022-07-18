@@ -18,7 +18,6 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Kairoslogo from './kairos.png';
@@ -26,7 +25,16 @@ import React, { useState } from 'react';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import { blueGrey } from '@mui/material/colors';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import styled from '@emotion/styled';
+import { Paper } from '@mui/material';
+
 const drawerWidth = 180;
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? blueGrey[800] : blueGrey[50],
+
+})); 
 
 function ResponsiveDrawer() {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -154,10 +162,9 @@ function ResponsiveDrawer() {
 
   return (
     <React.Fragment>
-    <Box sx={{display: 'flex',
-        justifyContent: 'space-evenly'}}>
+    <Box>
       <CssBaseline />
-      <Box
+      <Item
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
@@ -171,23 +178,19 @@ function ResponsiveDrawer() {
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { sm: 'none' }}}
           >
-            <MenuIcon color='red'/>
           </IconButton>
+
           <img src={Kairoslogo} alt="logo" height={'50vh'} width={'150vh'}/>
 
-          <Box sx={{ flexGrow: 1 }} />
-
           <Box
-          sx={{width: { sm: `calc(100% - ${drawerWidth}px)` },
-          ml: { sm: `${drawerWidth}px` },
+          sx={{width: { sm: `calc(100% - ${drawerWidth}px)` },display: 'flex',justifyContent: 'space-evenly'
           }}
           >
             <Typography 
             variant="h6" 
             noWrap 
             component="div" 
-            color={"primary"} 
-            textAlign="center">
+            color={"primary"}>
             <b>DATA QUALITY GATEWAY</b>
             </Typography>
           </Box>
@@ -199,8 +202,7 @@ function ResponsiveDrawer() {
               aria-controls={menuId}
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
+              color="inherit">
             <AccountCircleIcon color='primary'/>
             <Typography 
             variant="body2" 
@@ -208,6 +210,7 @@ function ResponsiveDrawer() {
             component="body2">  
               steve smith
             </Typography>
+            <ArrowDropDownIcon />
             </IconButton>
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
@@ -223,9 +226,9 @@ function ResponsiveDrawer() {
             </IconButton>
           </Box>
 
-
         </Toolbar>
-      </Box>
+      
+      </Item>
       <Box
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}

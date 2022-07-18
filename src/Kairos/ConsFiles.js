@@ -10,7 +10,7 @@ export default function ConsFiles() {
   return (
     <Box sx={{ flexGrow: 1, marginTop: 4 }}>
       <Grid container spacing={2}>
-        <Grid item md={3.5} xs={12}>
+        <Grid item md={3.8} xs={12}>
           <Typography sx={{fontSize: 18}}><b>Scheduled test sets</b></Typography>
          <ScheduledTests />
         </Grid>
@@ -18,7 +18,7 @@ export default function ConsFiles() {
         <Typography sx={{fontSize: 18}}><b>Connections</b></Typography>
         <Connections />
         </Grid>
-        <Grid item md={3.5} xs={12} sx={{marginLeft: 1}}>
+        <Grid item md={3.6} xs={12} marginLeft={1}>
         <Typography sx={{fontSize: 18}}><b>Files</b></Typography>
         <Files />
         </Grid>

@@ -66,7 +66,5 @@ export const data = {
 
 export function Chart2() {
   return <Bar options={options} 
-              data={data}
-
-               />;
+              data={data} />;
 }

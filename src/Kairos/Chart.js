@@ -2,7 +2,7 @@ import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import { grey } from '@mui/material/colors';
+import { blueGrey, grey } from '@mui/material/colors';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import CircleIcon from '@mui/icons-material/Circle';
@@ -11,6 +11,7 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { Chart2 } from './Chart2';
+import { ListItem } from '@mui/material';
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -19,7 +20,16 @@ const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(1),
 })); 
 
+const Items = styled(ListItem)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? blueGrey[800] : blueGrey[50],
+  fontSize: 13, 
+  padding: 3, 
+  textAlign: 'center', 
+  color: grey[810],
+  display: 'inline',
+  borderRadius: 5
 
+})); 
 
 
 export default function Chart() {
@@ -63,19 +73,18 @@ export default function Chart() {
                     justifyContent: 'flex-start'}}>
             <Box sx={{paddingX: 1.5, marginTop: 3}}>
               <Typography sx={{fontSize: 11, textAlign: 'center', display: 'inline'}}>Tests </Typography>
-              <Typography sx={{fontSize: 13, padding: 0.5, textAlign: 'center', color: grey[810], 
-              display: 'inline', backgroundColor: '#eceff1', borderRadius: 1}}>
-                <b>03</b></Typography>
+              <Items>
+                <b>03</b></Items>
               </Box> 
               <Box sx={{paddingX: 1.5, marginTop: 3}}>
                 <Typography sx={{fontSize: 11, textAlign: 'center', display: 'inline'}}>Validations </Typography>
-                <Typography sx={{fontSize: 13, padding: 0.5, textAlign: 'center', color: grey[810], display: 'inline', backgroundColor: '#eceff1',borderRadius: 1}}>
-                  <b>06</b></Typography>
+                <Items>
+                  <b>06</b></Items>
               </Box> 
               <Box sx={{paddingX: 1.5, marginTop: 3}}>
                 <Typography sx={{fontSize: 11, textAlign: 'center', display: 'inline'}}>Data Sources </Typography>
-                <Typography sx={{fontSize: 13, padding: 0.5, textAlign: 'center', color: grey[810], display: 'inline', backgroundColor: '#eceff1',borderRadius: 1}}>
-                  <b>20</b></Typography>
+                <Items>
+                  <b>20</b></Items>
               </Box> 
           </Box>
         
@@ -84,11 +93,10 @@ export default function Chart() {
                 marginTop: 3}}>
             <Box sx={{paddingX: 1.5}}>
             <Typography sx={{fontSize: 11, textAlign: 'center', display: 'inline'}}>Records Validated </Typography>
-            <Typography sx={{fontSize: 13, padding: 0.5, textAlign: 'center', color: grey[810],
-            display: 'inline', backgroundColor: '#eceff1', borderRadius: 1}}>
-            <b>10</b></Typography>
+            <Items>
+            <b>10</b></Items>
             </Box> 
-            <Box sx={{marginRight: 3, marginLeft: 4}}>
+            <Box sx={{marginRight: 3, marginLeft: 4, mt: 0.5}}>
               <Typography color= 'primary'
                 sx={{fontSize: 11,}}>6 Passed
                 <Typography color= '#f381a7' display='inline'

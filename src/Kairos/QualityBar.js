@@ -20,11 +20,7 @@ export default function QualityBar() {
     const FailedTests = 0;
     const DataSources = 45;
   return (
-    <Box sx={{
-    boxShadow: "0px 0px 15px 0px #bbdefb"
-    }}>
-      <Grid container
-      sx={{ borderColor: 'primary.main' }}>
+      <Grid container sx={{boxShadow: "0px 0px 15px 0px #bbdefb"}}>
         <Grid item lg={2} xs={12}>
           <Item variant='outlined' square borderColor="primary.main">
           <Typography
@@ -106,6 +102,5 @@ export default function QualityBar() {
         </Item>
         </Grid>
       </Grid>
-    </Box>
   );
 }

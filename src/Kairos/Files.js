@@ -25,7 +25,7 @@ const files= [{"Filetype":"Csv","Files":6},
 export default function Files() {
   return (
     <Item variant='outlined' sx={{borderRadius: 2, marginTop: 2}}>
-    <Box sx={{ flexGrow: 1 }}>
+    <Box>
       <Box sx={{display:'flex', alignItems: 'center',justifyContent:'center', paddingY: 3}}>
       <FolderOpenRoundedIcon  sx={{ color: grey[600]}}/>
       <Typography sx={{ color: grey[600], marginLeft: 1}} variant='h6' display='inline'>

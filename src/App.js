@@ -1,5 +1,5 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import DashBoard from "./Kairos/DashBoard";
 import Home from "./Pages/Home";
 import Layout from "./Pages/Layout";
 import Messages from "./Pages/Messages";
@@ -16,7 +16,6 @@ function App() {
             <Route path="/Messages" element={<Messages />} />
             <Route path="/Products" element={<ProductsList />} />
             <Route path="/Products/:id" element={<ProductDetails/>}/>
-            <Route path="/Dashboard" element={<DashBoard/>}/>
             <Route path="*" element={<NoPage />} />
           </Route> 
       </Routes>

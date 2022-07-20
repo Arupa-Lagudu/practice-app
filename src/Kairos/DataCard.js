@@ -18,6 +18,17 @@ const Item = styled(ListItem)(({ theme }) => ({
   borderRadius: 5,
 })); 
 
+const Fail = styled(Typography)(()=>({
+  fontSize: 12,
+  color: '#f381a7',
+  display: 'inline',
+  marginLeft: 6
+}))
+
+const Pass = styled(Typography)(()=>({
+  fontSize: 12,
+}))
+
 // const useStyles = makeStyles({
   // font: {
     // fontSize: 12,
@@ -40,17 +51,21 @@ export default function DataCard() {
             <b>{text}</b>
           </Item>
         ))}
+        <Box sx={{display:'flex',
+        justifyContent: 'space-between',
+        marginTop: 1}}>
       <Box display= 'flex'
-      position='flex-start'
-      flexDirection='row'
-      marginTop={1}>
-        <Typography color= 'primary'
-        sx={{fontSize: 12}}>{PassedTests} Passed
-        <Typography color= '#f381a7' display='inline'
-        sx={{fontSize: 12,marginLeft:1}} >{FailedTests} Failed
-        </Typography></Typography>
-        <Button sx={{fontSize: 10, textTransform: 'none', padding: 0,marginLeft: 3,}}>+ New</Button>
+      position='flex-start'>
+        <Pass color='primary'>{PassedTests} Passed </Pass>
+        <Fail>{FailedTests} Failed
+        </Fail>
         </Box>
+        <Box display= 'flex'
+          position='flex-end'>
+        <Button sx={{fontSize: 10, textTransform: 'none', padding: 0, display:'inline'}}>+ New</Button>
+        </Box>
+        </Box>
+        
     </Box>
 
   </React.Fragment>

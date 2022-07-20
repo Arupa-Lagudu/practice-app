@@ -1,0 +1,74 @@
+{
+  "Name": "Lakshmi",
+  "Test": {
+    "DataFetched": [
+      {
+        "Id": "1",
+        "FirstName": "Austen",
+        "LastName": "mnbv",
+        "Age": "54",
+        "Salary": "765",
+        "Email": "aus@gmail.com"
+      },
+      {
+        "Id": "2",
+        "FirstName": "Chandu",
+        "LastName": "",
+        "Age": "199",
+        "Salary": "7654",
+        "Email": "chann@yahooo.com"
+      },
+      {
+        "Id": "3",
+        "FirstName": "Chandu",
+        "LastName": "uyt",
+        "Age": "2",
+        "Salary": "87",
+        "Email": "xy@go.com"
+      },
+      {
+        "Id": "4",
+        "FirstName": "jh",
+        "LastName": "jhg",
+        "Age": "45",
+        "Salary": "987",
+        "Email": "gfd@ab.in"
+      },
+      {
+        "Id": "5",
+        "FirstName": "rt",
+        "LastName": "tr",
+        "Age": "77",
+        "Salary": "98",
+        "Email": "rfgg@gg.com"
+      },
+      {
+        "Id": "6",
+        "FirstName": "Austen",
+        "LastName": "hai",
+        "Age": "25",
+        "Salary": "1455",
+        "Email": "jfmc@add.org"
+      }
+    ]
+  },
+  "SampleData": [
+    {
+      "Id": "1",
+      "FirstName": "Austen",
+      "LastName": "mnbv",
+      "Age": "54",
+      "Salary": "765",
+      "Email": "aus@gmail.com"
+    },
+    {
+      "Id": "2",
+      "FirstName": "Chandu",
+      "LastName": "",
+      "Age": "199",
+      "Salary": "7654",
+      "Email": "chann@yahooo.com"
+    }
+  ]
+
+}

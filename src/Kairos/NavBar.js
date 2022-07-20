@@ -27,6 +27,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { blueGrey } from '@mui/material/colors';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import GridViewRoundedIcon from '@mui/icons-material/GridViewRounded';
 import styled from '@emotion/styled';
 import { Paper } from '@mui/material';
 
@@ -132,7 +133,7 @@ function ResponsiveDrawer() {
       <List>
         {['Dashboard', 'Test Hub', 'Scheduled', 'Connections', 'Files', 'Validations'].map((text, index) => (
           <ListItem key={text} disablePadding >
-            <ListItemButton>
+            <ListItemButton href={`/${text}`}>
               <ListItemIcon>
                 {[<DashboardRoundedIcon />, <HomeRoundedIcon />, <CalendarMonthRoundedIcon />, 
                 <DeviceHubRoundedIcon />, <FolderCopyRoundedIcon />, <TaskAltRoundedIcon /> ].at(index)}
@@ -146,7 +147,7 @@ function ResponsiveDrawer() {
       <List>
         {['preference', 'Guides'].map((text, index) => (
           <ListItem key={text} disablePadding>
-            <ListItemButton>
+            <ListItemButton href={`/${text}`}>
               <ListItemIcon>
               {[<SettingsApplicationsRoundedIcon />, <SupportRoundedIcon />].at(index)}
               </ListItemIcon>
@@ -178,6 +179,7 @@ function ResponsiveDrawer() {
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { sm: 'none' }}}
           >
+            <GridViewRoundedIcon color='primary'/>
           </IconButton>
 
           <img src={Kairoslogo} alt="logo" height={'50vh'} width={'150vh'}/>

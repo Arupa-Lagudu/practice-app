@@ -6,11 +6,6 @@ import Chart from './Chart';
 import DataSource from './DataSource';
 import { blueGrey } from '@mui/material/colors';
 import styled from '@emotion/styled';
-// import { RotatedBar2 } from './RotatedBar2';
-// import Counter from './Hooks/UseReducer';
-// import UseContext from './Hooks/UseContext';
-// import UseMemo from './Hooks/UseMemo';
-// import UseCallback from './Hooks/UseCallback';
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? blueGrey[800] : blueGrey[50],
   padding: theme.spacing(0.1),

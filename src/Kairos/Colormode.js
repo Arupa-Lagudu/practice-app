@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import { useTheme, ThemeProvider, createTheme } from '@mui/material/styles';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
-import MyApp from './Kairos/AppRouting';
+import App from './AppRouting';
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
@@ -15,21 +15,21 @@ function Colormode() {
     <Box
       sx={{
         display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
+        alignItems: 'flex-end',
+        justifyContent: 'right',
         bgcolor: 'background.default',
         color: 'text.primary',
       }}
     >
       <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
-        {theme.palette.mode === 'dark' ? <Brightness7Icon sx={{ fontSize: 15 }}/> : <Brightness4Icon sx={{ fontSize: 15 }}/>}
+        {theme.palette.mode === 'dark' ? <Brightness7Icon fontSize='small'/> : <Brightness4Icon fontSize='small'/>}
       </IconButton>
     </Box>
   );
 }
 
 export default function ToggleColorMode() {
-  const [mode, setMode] = React.useState(window.localStorage.getItem('AppMode') || 'light');
+  const [mode, setMode] = React.useState('light');
   const colorMode = React.useMemo(
     () => ({
       toggleColorMode: () => {
@@ -37,7 +37,6 @@ export default function ToggleColorMode() {
       },
     }),
     [],
-    window.localStorage.setItem('AppMode', mode)
   );
 
   const theme = React.useMemo(
@@ -54,7 +53,6 @@ export default function ToggleColorMode() {
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <Colormode />
-        <MyApp />
       </ThemeProvider>
     </ColorModeContext.Provider>
   );

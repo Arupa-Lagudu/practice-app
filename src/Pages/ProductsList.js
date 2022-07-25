@@ -22,7 +22,6 @@ const ProductsList = () => {
     ProductList();
 
 }, []);
-console.dir(data);
 
 const searchData = (pattern) => {
   const fuse = new Fuse(appState.prods.products, {

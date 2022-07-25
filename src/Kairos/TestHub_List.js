@@ -5,25 +5,13 @@ import Collapse from '@mui/material/Collapse';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { ListItem} from '@mui/material';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
 import data from './Data/scan-json-request.json'
 import Divider from '@mui/material/Divider';
 import { styled } from '@mui/styles';
 import { blueGrey } from '@mui/material/colors';
+import DataTable from './Table';
 
 const LI = styled(ListItem)(({ theme }) => ({
-    ...theme.typography.body2,
-    "&:hover": {
-        backgroundColor: theme.palette.mode === 'dark' ? blueGrey[800] : '#0277bd',
-        boxShadow: "0px 0px 5px 1px #9e9e9e",
-      }
-  })); 
-
-  const TB = styled(TableBody)(({ theme }) => ({
     ...theme.typography.body2,
     "&:hover": {
         backgroundColor: theme.palette.mode === 'dark' ? blueGrey[800] : '#0277bd',
@@ -34,9 +22,12 @@ const LI = styled(ListItem)(({ theme }) => ({
 export default function TestHubList() {
   const [open, setOpen] = React.useState({Testopen: false, DFopen: false, SDopen: false});
 
-
   return (
     <List sx={{bgcolor: 'background.paper',padding: 0, mt: 2}}>
+      {console.log(Object.keys(data).length)}
+      {Object.entries(data).map(([key, value]) =>(
+        console.log(key, value)
+      ))}
       <LI>
         <ListItemText primary={data.Name} />
       </LI>
@@ -53,29 +44,7 @@ export default function TestHubList() {
       </LI>
       <Divider variant="fullWidth" component="li" />
       <Collapse in={open.DFopen} timeout="auto" unmountOnExit>
-        <Table aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell align="right">ID</TableCell>
-              <TableCell align="right">First Name</TableCell>
-              <TableCell align="right">Last Name</TableCell>
-              <TableCell align="right">Age</TableCell>
-              <TableCell align="right">Salary</TableCell>
-              <TableCell align="right">Email</TableCell>
-            </TableRow>
-          </TableHead>
-
-          {data.Test.DataFetched.map((row) => (
-          <TB>
-            <TableCell align="right" >{row.Id}</TableCell>
-            <TableCell align="right">{row.FirstName}</TableCell>
-            <TableCell align="right">{row.LastName}</TableCell>
-            <TableCell align="right">{row.Age}</TableCell>
-            <TableCell align="right">{row.Salary}</TableCell>
-            <TableCell align="right">{row.Email}</TableCell>
-            </TB>
-           ))}
-        </Table>
+        <DataTable data={data.Test.DataFetched} />
       </Collapse>
       </Collapse>
       <LI onClick={()=>{setOpen({SDopen: !open.SDopen})}}>
@@ -84,28 +53,7 @@ export default function TestHubList() {
       </LI>
       <Divider variant="fullWidth" component="li" />
         <Collapse in={open.SDopen} timeout="auto" unmountOnExit>
-          <Table aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell align="right">ID</TableCell>
-                <TableCell align="right">First Name</TableCell>
-                <TableCell align="right">Last Name</TableCell>
-                <TableCell align="right">Age</TableCell>
-                <TableCell align="right">Salary</TableCell>
-                <TableCell align="right">Email</TableCell>
-              </TableRow>
-            </TableHead>
-            {data.SampleData.map((row) => (
-            <TB>
-              <TableCell align="right" >{row.Id}</TableCell>
-              <TableCell align="right">{row.FirstName}</TableCell>
-              <TableCell align="right">{row.LastName}</TableCell>
-              <TableCell align="right">{row.Age}</TableCell>
-              <TableCell align="right">{row.Salary}</TableCell>
-              <TableCell align="right">{row.Email}</TableCell>
-            </TB>
-            ))}
-          </Table>
+        <DataTable data={data.SampleData} />
         </Collapse>      
     </List>
   );

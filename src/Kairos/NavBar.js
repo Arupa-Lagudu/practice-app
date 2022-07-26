@@ -31,13 +31,25 @@ import GridViewRoundedIcon from '@mui/icons-material/GridViewRounded';
 import styled from '@emotion/styled';
 import { Paper } from '@mui/material';
 
+
 const drawerWidth = 180;
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? blueGrey[800] : blueGrey[50],
 
+}));
+
+
+const LIB = styled(ListItemButton)(() => ({
+  "&:hover": {
+      backgroundColor: '#0277bd',
+    },
+    "&:selected": {
+      backgroundColor: "#0277bd",
+    }
 })); 
 
 function ResponsiveDrawer() {
+
   const [mobileOpen, setMobileOpen] = useState(false)
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -133,13 +145,13 @@ function ResponsiveDrawer() {
       <List>
         {['Dashboard', 'Test Hub', 'Scheduled', 'Connections', 'Files', 'Validations'].map((text, index) => (
           <ListItem key={text} disablePadding >
-            <ListItemButton href={`/${text}`}>
+            <LIB href={`/${text}`}>
               <ListItemIcon>
                 {[<DashboardRoundedIcon />, <HomeRoundedIcon />, <CalendarMonthRoundedIcon />, 
                 <DeviceHubRoundedIcon />, <FolderCopyRoundedIcon />, <TaskAltRoundedIcon /> ].at(index)}
               </ListItemIcon>
               <ListItemText primary={text} />
-            </ListItemButton>
+            </LIB>
           </ListItem>
         ))}
       </List>
@@ -147,12 +159,12 @@ function ResponsiveDrawer() {
       <List>
         {['preference', 'Guides'].map((text, index) => (
           <ListItem key={text} disablePadding>
-            <ListItemButton href={`/${text}`}>
+            <LIB href={`/${text}`}>
               <ListItemIcon>
               {[<SettingsApplicationsRoundedIcon />, <SupportRoundedIcon />].at(index)}
               </ListItemIcon>
               <ListItemText primary={text} />
-            </ListItemButton>
+            </LIB>
           </ListItem>
         ))}
       </List>

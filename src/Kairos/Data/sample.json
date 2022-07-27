@@ -1,0 +1,45 @@
+{
+    "Is_Similar": "True",
+    "Threshold": 150,
+    "Differences": {
+        "Total_Differences_Count": 5
+    },
+    "Object_Differences": [
+        {
+            "Label": 1,
+            "x": 118,
+            "y": 330,
+            "height": 100,
+            "width": 136
+        },
+        {
+            "Label": 2,
+            "x": 397,
+            "y": 277,
+            "height": 45,
+            "width": 81
+        },
+        {
+            "Label": 3,
+            "x": 2,
+            "y": 215,
+            "height": 126,
+            "width": 124
+        },
+        {
+            "Label": 4,
+            "x": 459,
+            "y": 124,
+            "height": 53,
+            "width": 75
+        },
+        {
+            "Label": 5,
+            "x": 541,
+            "y": 116,
+            "height": 103,
+            "width": 138
+        }
+    ],
+    "Execution_time": 26.09097671508789
+}

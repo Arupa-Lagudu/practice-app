@@ -3,6 +3,7 @@ import NavBar from "./NavBar";
 import DashBoard from "./DashBoard";
 import TestHub from "./TestHub";
 import ImageDiff from "./ImageDiff";
+import Connections from "./Login";
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/Dashboard" element={<DashBoard />} />
         <Route path="/Test%20Hub" element={<TestHub />} />
         <Route path="/Scheduled" element={<ImageDiff />} />
+        <Route path="/Connections" element={<Connections />}/>
       </Routes>
     </BrowserRouter>
   );

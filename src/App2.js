@@ -5,7 +5,6 @@ import { useTheme, ThemeProvider, createTheme } from '@mui/material/styles';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import MyApp from './Kairos/AppRouting';
-import Globals from './Kairos/Styles/global.css';
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
@@ -53,7 +52,6 @@ export default function ToggleColorMode() {
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
-        <Globals />
         <Colormode />
         <MyApp />
       </ThemeProvider>

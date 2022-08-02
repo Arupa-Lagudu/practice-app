@@ -1,26 +1,12 @@
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import StorageRoundedIcon from '@mui/icons-material/StorageRounded';
 import InsertDriveFileRoundedIcon from '@mui/icons-material/InsertDriveFileRounded';
 import CardContent from '@mui/material/CardContent';
 import DataCard from './DataCard';
 import {Typography } from '@mui/material';
-
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  // padding: theme.spacing(1),
-  textAlign: 'center',
-  borderRadius: 10,
-  "&:hover": {
-    border: "2px solid #bbdefb",
-    boxShadow: "0px 0px 10px 1px #bbdefb",
-  }
-
-}));
+import { StyledPaperwithHover } from './Styles/Styled.Paper';
 
 export default function SingleDataSource() {
   return (
@@ -34,7 +20,7 @@ marginTop={2}>
       <Grid container spacing={1.5}>        
           {['DB', 'File' ].map((cat, index) => (
           <Grid item xs={6}>
-            <Item variant='outlined'>
+            <StyledPaperwithHover variant='outlined'>
         <CardContent >
           <Box 
           sx={{display: 'flex',
@@ -47,7 +33,7 @@ marginTop={2}>
           </Box>
             <DataCard />
         </CardContent>
-      </Item>
+      </StyledPaperwithHover>
       </Grid>
     ))}
           

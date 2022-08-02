@@ -1,18 +1,11 @@
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import { Divider, List, ListItemText, Typography } from '@mui/material';
 import CalendarMonthRoundedIcon from '@mui/icons-material/CalendarMonthRounded';
 import { grey } from '@mui/material/colors';
-import Button from '@mui/material/Button';
-
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-})); 
+import { StyledPaper } from './Styles/Styled.Paper';
+import { ButtonStyled } from './Styles/Styled.Button';
 
 const Tests= [{"Batch":"Batch A","ScheduledDate":"May 31, 2022 19:00"},
               {"Batch":"Batch B","ScheduledDate":"May 31, 2022 22:00"},
@@ -28,7 +21,7 @@ const Tests= [{"Batch":"Batch A","ScheduledDate":"May 31, 2022 19:00"},
 
 export default function Schedules() {
   return (
-    <Item variant='outlined' sx={{borderRadius: 2, marginTop: 2}}>
+    <StyledPaper variant='outlined' sx={{borderRadius: 2, marginTop: 2}}>
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
         <Grid item xs={7}>
@@ -49,10 +42,10 @@ export default function Schedules() {
         <Typography sx={{ color: grey[600]}} variant='h6' display='inline'>
           <b>{Tests.length}</b>
         </Typography>
-        <Button sx={{fontSize: 10, textTransform: 'none', textAlign: 'right'}}>+ New</Button>
+        <ButtonStyled>+ New</ButtonStyled>
       </Grid>
       </Grid>
     </Box>
-    </Item>
+    </StyledPaper>
   );
 }

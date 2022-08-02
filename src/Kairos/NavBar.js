@@ -15,7 +15,6 @@ import List from '@mui/material/List';
 import logo from './Images/K-logo.png';
 import ListItem from '@mui/material/ListItem';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Toolbar from '@mui/material/Toolbar';
@@ -25,30 +24,23 @@ import React, { useState } from 'react';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { blueGrey } from '@mui/material/colors';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import GridViewRoundedIcon from '@mui/icons-material/GridViewRounded';
-import styled from '@emotion/styled';
-import { Paper } from '@mui/material';
+import { useTheme} from '@mui/material/styles';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+import { StyledPaperwithBC } from './Styles/Styled.Paper';
+import { LIB } from './Styles/Styled.LIB';
+
+const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
 
 const drawerWidth = 180;
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? blueGrey[800] : blueGrey[50],
-
-}));
-
-
-const LIB = styled(ListItemButton)(() => ({
-  "&:hover": {
-      backgroundColor: '#0277bd',
-    },
-    "&:selected": {
-      backgroundColor: "#0277bd",
-    }
-})); 
 
 function ResponsiveDrawer() {
+
+  const theme = useTheme();
+  const colorMode = React.useContext(ColorModeContext);
 
   const [mobileOpen, setMobileOpen] = useState(false)
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -177,7 +169,7 @@ function ResponsiveDrawer() {
     <React.Fragment>
     <Box>
       <CssBaseline />
-      <Item
+      <StyledPaperwithBC
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
@@ -210,6 +202,12 @@ function ResponsiveDrawer() {
           </Box>
 
           <Box sx={{ display: { xs: 'none', md: 'flex'}, justifyContent:'flex-end'}}>
+
+          <Box>
+            <IconButton sx={{mt: 0.4 }} onClick={colorMode.toggleColorMode} color="inherit">
+              {theme.palette.mode === 'dark' ? <Brightness7Icon sx={{ fontSize: 15 }}/> : <Brightness4Icon sx={{ fontSize: 15 }}/>}
+            </IconButton>
+          </Box>
             <IconButton
               size="small"
               aria-label="account of current user"
@@ -242,7 +240,7 @@ function ResponsiveDrawer() {
 
         </Toolbar>
       
-      </Item>
+      </StyledPaperwithBC>
       <Box
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}

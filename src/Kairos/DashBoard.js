@@ -1,21 +1,15 @@
-import {Paper, Typography } from '@mui/material';
+import {Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import QualityBar from './QualityBar';
 import ConsFiles from './ConsFiles';
 import Chart from './Chart';
 import DataSource from './DataSource';
-import { blueGrey } from '@mui/material/colors';
-import styled from '@emotion/styled';
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? blueGrey[800] : blueGrey[50],
-  padding: theme.spacing(0.1),
-  marginTop: 1,
-}));
+import {StyledPaperwithBC } from './Styles/Styled.Paper';
 
 const DashBoard = () =>{
   const drawerWidth = 180;
   return(
-    <Item sx={{width: { sm: `calc(100% - ${drawerWidth}px)` },
+    <StyledPaperwithBC sx={{width: { sm: `calc(100% - ${drawerWidth}px)` },
     ml: { sm: `${drawerWidth}px` }}}>
       <QualityBar />
       <Box sx={{ml: 6, mt:4, mr: 4}}>
@@ -36,7 +30,7 @@ const DashBoard = () =>{
         {/* <UseCallback /> */}
       {/* </Box> */}
     
-    </Item>
+    </StyledPaperwithBC>
   )
 }
 

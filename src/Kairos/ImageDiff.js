@@ -1,15 +1,9 @@
-import styled from '@emotion/styled';
-import {Box, Paper, Typography } from '@mui/material';
-import { blueGrey } from '@mui/material/colors';
+import {Box,Typography } from '@mui/material';
 import Canvas from './Canvas';
 import OImage from './Images/Original.jpeg'
 import MImage from './Images/Modified.jpeg'
 import data from './Data/sample.json'
-
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? blueGrey[800] : blueGrey[50],
-  padding: theme.spacing(2),
-}));
+import {StyledPaperwithBC } from './Styles/Styled.Paper';
 
 const drawLabel = (context,info, label) => {
   const ctx = context; 
@@ -63,7 +57,7 @@ const draw = (ctx) => {
 const ImageDiff= () =>{
   const drawerWidth = 180;
   return(
-    <Item sx={{width: { sm: `calc(100% - ${drawerWidth}px)` },
+    <StyledPaperwithBC sx={{width: { sm: `calc(100% - ${drawerWidth}px)` },
     ml: { sm: `${drawerWidth}px` }, mt: 0.1}} elevation={0}>
       <Box
       sx={{ display:'flex',
@@ -79,7 +73,7 @@ const ImageDiff= () =>{
       }}>
         <Canvas draw={draw} height={1000} width={800}/>
       </Box>      
-    </Item>
+    </StyledPaperwithBC>
   );
 }
 

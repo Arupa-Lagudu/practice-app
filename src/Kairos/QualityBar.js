@@ -1,16 +1,9 @@
-import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import { Typography } from '@mui/material';
 import BarChart from './BarChart';
+import { StyledPaperwithBorder } from './Styles/Styled.Paper';
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  padding: theme.spacing(1),
-  height: 70,
-  borderColor: "#bbdefb",
-}));
 
 export default function QualityBar() {
     const TotalTests = 25;
@@ -22,7 +15,7 @@ export default function QualityBar() {
   return (
       <Grid container sx={{boxShadow: "0px 0px 15px 0px #bbdefb"}}>
         <Grid item lg={2} xs={12}>
-          <Item variant='outlined' square borderColor="primary.main">
+          <StyledPaperwithBorder variant='outlined' square borderColor="primary.main">
           <Typography
             variant='body2'
             component="h6"
@@ -31,10 +24,10 @@ export default function QualityBar() {
             marginTop={1}>
             <b>Overall Data Quality</b>
           </ Typography>
-          </Item>
+          </StyledPaperwithBorder>
         </Grid>
         <Grid item lg={5.5} xs={12}>
-          <Item variant='outlined' square >
+          <StyledPaperwithBorder variant='outlined' square >
             <Grid container>
               <Grid item xs={3}>
           <Typography
@@ -56,10 +49,10 @@ export default function QualityBar() {
           </Box>
           </Grid>
           </Grid>
-        </Item>
+        </StyledPaperwithBorder>
         </Grid>
         <Grid item lg={1} xs={6}>
-          <Item variant='outlined' square> 
+          <StyledPaperwithBorder variant='outlined' square> 
             <Typography
             variant='body2'
             component="h6"
@@ -71,10 +64,10 @@ export default function QualityBar() {
             >
               No of Tests: <Typography sx={{fontSize: 14}} color="primary" display="inline"><b>{TotalTests}</b></Typography>
             </Typography>
-          </Item>
+          </StyledPaperwithBorder>
         </Grid>
         <Grid item lg={1} xs={6}>
-          <Item variant='outlined' square>
+          <StyledPaperwithBorder variant='outlined' square>
             <Typography
             variant='body2'
             component="h6"
@@ -86,10 +79,10 @@ export default function QualityBar() {
               No of Tests: <Typography sx={{fontSize: 14}} color="primary" display="inline"><b>{ValidTests}</b></Typography>
             </Typography>
             </Typography>
-          </Item>
+          </StyledPaperwithBorder>
         </Grid>
         <Grid item lg={2.5} xs={12}>
-          <Item variant='outlined' square>
+          <StyledPaperwithBorder variant='outlined' square>
           <Typography
           variant='body2'
           component="h6"
@@ -99,7 +92,7 @@ export default function QualityBar() {
         <Typography sx={{fontSize: 12}} color="primary" display="inline"
         >{PassedTests} Passed  </Typography>
         <Typography sx={{fontSize: 12}} color="#f381a7" display="inline"> {FailedTests} Failed</Typography>
-        </Item>
+        </StyledPaperwithBorder>
         </Grid>
       </Grid>
   );

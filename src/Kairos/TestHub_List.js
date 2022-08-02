@@ -4,20 +4,10 @@ import ListItemText from '@mui/material/ListItemText';
 import Collapse from '@mui/material/Collapse';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-import { ListItem} from '@mui/material';
 import data from './Data/scan-json-request.json'
 import Divider from '@mui/material/Divider';
-import { styled } from '@mui/styles';
-import { blueGrey } from '@mui/material/colors';
 import DataTable from './Table';
-
-const LI = styled(ListItem)(({ theme }) => ({
-    ...theme.typography.body2,
-    "&:hover": {
-        backgroundColor: theme.palette.mode === 'dark' ? blueGrey[800] : '#0277bd',
-        boxShadow: "0px 0px 5px 1px #9e9e9e",
-      }
-  })); 
+import { LI } from './Styles/Styled.LIB';
 
 export default function TestHubList() {
   const [open, setOpen] = React.useState({Testopen: false, DFopen: false, SDopen: false});

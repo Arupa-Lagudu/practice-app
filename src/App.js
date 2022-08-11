@@ -1,101 +1,93 @@
-import React, { useState, createContext } from "react";
-import { ThemeProvider } from "@mui/material/styles";
-import SignIn from "./Kairos/Login/index";
-import { Box } from "@mui/material";
-import { Snackbar } from "@mui/material";
-import {
-  BrowserRouter as Router,
-  Navigate,
-  Route,
-  Routes,
-} from "react-router-dom";
-import MuiAlert from "@mui/material/Alert";
-import DashBoard from "./Kairos/DashBoard";
-import NotFound from "./Kairos/NotFound";
-import { theme } from "./Kairos/Styles/Styles";
-import DashboardLayout from "./Kairos/DashboardLayout/index"
-import { Outlet } from "react-router-dom";
-import TestHub from "./Kairos/TestHub";
+import { useIdleTimer } from 'react-idle-timer'
+import { useEffect, useState } from "react";
+import { IdleTimeOutModal } from './Kairos/IdolModal';
+import { Box } from '@mui/system';
+import { Typography } from '@mui/material';
 
-const Alert = React.forwardRef(function Alert(props, ref) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
+function App () {
+  // Set timeout values
+  const timeout = 1000 * 5
+  const promptTimeout = 1000 * 30
 
-export const SnackbarContext = createContext({});
+  // Modal open state
+  const [open, setOpen] = useState(false)
 
-const PrivateRoute = ({ children }) => {
-  const userDetails = JSON.parse(localStorage.getItem("KiTapAuth"));
-  return userDetails ? children : <Navigate to="/login" />;
-};
+  // Time before idle
+  const [remaining, setRemaining] = useState(0)
 
-const SidebarLayout = () => (
-  <>
-    <DashboardLayout />
-    <Outlet />
-  </>
-);
+  const onPrompt = () => {
+    // onPrompt will be called after the timeout value is reached
+    // In this case 30 minutes. Here you can open your prompt. 
+    // All events are disabled while the prompt is active. 
+    // If the user wishes to stay active, call the `reset()` method.
+    // You can get the remaining prompt time with the `getRemainingTime()` method,
+    setOpen(true)
+    console.log('user is Idle');
+    setRemaining(promptTimeout)
+  }
+  
+  const onIdle = () => {
+    // onIdle will be called after the promptTimeout is reached.
+    // In this case 30 seconds. Here you can close your prompt and 
+    // perform what ever idle action you want such as log out your user.
+    // Events will be rebound as long as `stopOnMount` is not set.
+    setOpen(false)
+    setRemaining(0)
+  }
+  
+  const onActive = () => {
+    // onActive will only be called if `reset()` is called while `isPrompted()` 
+    // is true. Here you will also want to close your modal and perform
+    // any active actions. 
+    setOpen(false)
+    setRemaining(0)
+  }
 
-function App() {
-  // toaster start
-  const initialState = {
-    message: "",
-    color: "",
-    open: false,
-  };
-  const [snack, setSnack] = useState(initialState);
+  const { getRemainingTime, isPrompted, activate } = useIdleTimer({
+    timeout,
+    promptTimeout,
+    onPrompt,
+    onIdle,
+    onActive
+  })
 
-  const handleClose = (event, reason) => {
-    if (reason === "clickaway") {
-      return;
+  const handleStillHere = () => {
+    setOpen(false)
+    activate()
+  }
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (isPrompted()) {
+        setRemaining(Math.ceil(getRemainingTime() / 1000))
+      }
+    }, 1000)
+    return () => {
+      clearInterval(interval)
     }
-    setSnack(initialState);
-  };
+  }, [getRemainingTime, isPrompted])
 
-  //toaster end
+  const handleLogout = () => {
+    setOpen(false)
+
+  }
 
   return (
-    <ThemeProvider theme={theme}>
-      <div className="App">
-        <Box>
-          <Router>
-            {/* toaster for all components*/}
-            <SnackbarContext.Provider value={{ snack, setSnack }}>
-              {/* toaster */}
-              <Snackbar
-                anchorOrigin={{ vertical: "top", horizontal: "center" }}
-                open={snack.open}
-                autoHideDuration={3000}
-                onClose={handleClose}
-              >
-                <Alert onClose={handleClose} severity={snack.colour}>
-                  {snack.message}
-                </Alert>
-              </Snackbar>
-              <>
-                <Routes>
-                  <Route path="/" element={<SignIn />} />
-                </Routes>
-              </>
-              {/* toaster */}
-              <div>
-                <Box
-                  component="main"
-                  sx={{ display: "flex", padding: "48px 24px 24px" }}
-                >
-                  <Routes>
-                      <Route path="/Dashboard" element={<DashBoard />} />
-                      <Route path="/TestHub" element={<TestHub />} />
-                      <Route path="*" exact={true} element={<NotFound />} />
-                  </Routes>
-                </Box>
-              </div>
-            </SnackbarContext.Provider>
-            {/* toaster end*/}
-          </Router>
-        </Box>
-      </div>
-    </ThemeProvider>
-  );
+    <Box>
+    <div className='modal' style={{ display: open ? 'block' : 'none' }}>
+      <p>Logging you out in {remaining} seconds</p>
+      <button onClick={handleStillHere}>Im Still Here</button>
+    </div>
+
+      <IdleTimeOutModal
+        showModal={open}
+        handleClose={handleStillHere}
+        handleLogout={handleLogout}
+        remainingTime={remaining}
+        />
+        <Typography component='h1' variant='h1'> UseIdleTimeOut session TimeOut Demo!!</Typography>
+    </Box>
+  )
 }
 
 export default App;

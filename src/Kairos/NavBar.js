@@ -24,13 +24,13 @@ import React, { useState } from 'react';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import GridViewRoundedIcon from '@mui/icons-material/GridViewRounded';
 import { useTheme} from '@mui/material/styles';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { StyledPaperwithBC } from './Styles/Styled.Paper';
 import { LIB } from './Styles/Styled.LIB';
+import { useNavigate } from "react-router-dom";
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
@@ -66,6 +66,7 @@ function ResponsiveDrawer() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
+  const navigate = useNavigate();
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
     <Menu
@@ -83,8 +84,12 @@ function ResponsiveDrawer() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem>Profile</MenuItem>
+      <MenuItem>My account</MenuItem>
+      <MenuItem onClick={()=>{localStorage.removeItem("KiTapAuth")
+                              navigate("/login");}}>Logout</MenuItem>
+      
+
     </Menu>
   );
 
@@ -216,13 +221,6 @@ function ResponsiveDrawer() {
               onClick={handleProfileMenuOpen}
               color="inherit">
             <AccountCircleIcon color='primary'/>
-            <Typography 
-            variant="body2" 
-            noWrap 
-            component="body2">  
-              steve smith
-            </Typography>
-            <ArrowDropDownIcon />
             </IconButton>
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>

@@ -1,6 +1,7 @@
 import axios from "axios";
 const API_URL = "https://reqres.in/api/";
 
+
 class AuthService {
   login(Email, Password) {
     return axios
@@ -16,9 +17,9 @@ class AuthService {
         return response.data;
       });
   }
-
-  logOut = () => {
+  logout = () => {
     localStorage.removeItem("KiTapAuth");
+    window.location.reload()
   };
   
 }

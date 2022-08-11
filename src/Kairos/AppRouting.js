@@ -10,7 +10,7 @@ import DashBoard from "./DashBoard";
 import TestHub from "./TestHub";
 import ImageDiff from "./ImageDiff";
 import Login from "./Login";
-import NotFound from "./NotFound";
+import IdleTimerContainer from "./IdleTimerContainer";
 
 const PrivateRoute = ({ children }) => {
   const userDetails = JSON.parse(localStorage.getItem("KiTapAuth"));
@@ -20,6 +20,7 @@ const PrivateRoute = ({ children }) => {
 const SidebarLayout = () => (
   <>
     <NavBar />
+    <IdleTimerContainer />
     <Outlet />
   </>
 );
@@ -44,19 +45,10 @@ function App() {
         <Route path="/Scheduled" element={
           <PrivateRoute children={<ImageDiff />} />} />
 
-        <Route path="/Connections" element={<NotFound />} />
 
-        <Route path="/Files" element={<NotFound />} />
 
-        <Route path="/Validations" element={<NotFound />} />
+        </Route>
 
-        <Route path="/Files" element={<NotFound />} />
-
-        <Route path="/preference" element={<NotFound />} />
-
-        <Route path="/Guides" element={<NotFound />} />
-
-      </Route>
 
     </Routes>
 

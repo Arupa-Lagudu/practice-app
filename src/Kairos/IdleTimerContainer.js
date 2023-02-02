@@ -6,7 +6,7 @@ import { IdleTimeOutModal } from './IdolModal';
 
 function IdleTimerContainer () {
   
-  const timeout = 1000 * 6
+  const timeout = 1000 * 60 * 15
   const promptTimeout = 1000 * 15
 
   const [open, setOpen] = useState(false)

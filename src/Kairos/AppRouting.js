@@ -11,6 +11,7 @@ import TestHub from "./TestHub";
 import ImageDiff from "./ImageDiff";
 import Login from "./Login";
 import IdleTimerContainer from "./IdleTimerContainer";
+import Conns from "./Connections-Dash";
 
 const PrivateRoute = ({ children }) => {
   const userDetails = JSON.parse(localStorage.getItem("KiTapAuth"));
@@ -45,6 +46,8 @@ function App() {
         <Route path="/Scheduled" element={
           <PrivateRoute children={<ImageDiff />} />} />
 
+        <Route path="/Connections" element={
+          <PrivateRoute children={<Conns />} />} />
 
 
         </Route>
